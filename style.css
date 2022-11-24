@@ -1,0 +1,598 @@
+@charset "UTF-8";
+.screen-reader-text {
+  /* Reusable, toolbox kind of class */
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.disabled {
+  color: #666;
+  cursor: default;
+}
+
+.show {
+  display: inline-block !important;
+}
+
+body {
+  margin: 100px 0 0 0;
+  background-color: #000;
+}
+body .container {
+  font-family: arial, helvetica, sans-serif;
+  font-size: 1em;
+  color:darkred;
+  margin: 100px auto;
+  width: 500px;
+  position: relative;
+}
+
+img {
+  position: absolute;
+  z-index: -1;
+  left: -50%;
+  top: -20%;
+  height: auto;
+  width: auto;
+}
+
+h1{
+  font-size: 2rem;
+  color:darkred;
+  font-style: italic;
+  letter-spacing: 4px;
+  padding: 10%;
+}
+
+.text{
+  font-style: italic;
+  text-align: right;
+  opacity: 0.8;
+  position: relative;
+  top: -20px;
+  right: 100px;
+}
+
+body .container .player {
+  height: 60px;
+  margin: 0;
+  position: relative;
+  width: 400px;
+  /* Small devices (tablets, 768px and up) */
+  /* Medium devices (desktops, 992px and up) */
+  /* Large devices (large desktops, 1200px and up) */
+  *zoom: 1;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  body .container .player {
+    width: 470px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1100px) {
+  body .container .player {
+    width: 470px;
+  }
+}
+@media (min-width: 1200px) {
+  body .container .player {
+    width: 470px;
+  }
+}
+
+.footer p a {
+     margin: auto;
+    text-align: center;
+    top: 1020px;
+    position: absolute;
+    color: darkred;
+    opacity: 20%;
+    font-style: italic;
+    letter-spacing: 1px;
+    left: 47%;
+}
+
+
+.footer:hover p a{
+    opacity: 100%;
+}
+body .container .player .large-toggle-btn {
+  
+  float: left;
+  font-size: 1.5em;
+  height: 50px;
+  margin: 0 10px 0 0;
+  overflow: hidden;
+  padding: 5px 0 0 0;
+  position: relative;
+  text-align: center;
+  vertical-align: bottom;
+  width: 54px;
+  color:darkred;
+}
+body .container .player .large-toggle-btn .large-play-btn {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  top: -14%;
+}
+body .container .player .large-toggle-btn .large-play-btn:before {
+  content: "";
+  font: 1.5em/1.75 "FontAwesome";
+}
+body .container .player .large-toggle-btn .large-pause-btn {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  top: -13%;
+}
+body .container .player .large-toggle-btn .large-pause-btn:before {
+  content: "";
+  font: 1.5em/1.75 "FontAwesome";
+}
+body .container .player .info-box {
+  bottom: 10px;
+  left: 65px;
+  position: absolute;
+  top: -1px;
+}
+
+body .container .player .info-box .track-info-box {
+  float: left;
+  font-size: 12px;
+  margin: 0 0 6px 0;
+  visibility: hidden;
+  width: 400px;
+  *zoom: 1;
+  color:darkred;
+}
+
+body .container .player .info-box .track-info-box .track-title-text {
+  display: inline-block;
+}
+body .container .player .info-box .track-info-box .audio-time {
+  display: inline-block;
+  padding: 0 0 0 5px;
+  width: 80px;
+}
+body .container .player .info-box .track-info-box:before, body .container .player .info-box .track-info-box:after {
+  content: " ";
+  display: table;
+}
+body .container .player .info-box .track-info-box:after {
+  clear: both;
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+  color:darkred;
+}
+body .container .player .progress-box {
+  float: left;
+  min-width: 270px;
+  position: relative;
+}
+body .container .player .progress-box .progress-cell {
+  height: 12px;
+  position: relative;
+}
+body .container .player .progress-box .progress-cell .progress {
+  background:darkred;
+  border: 1px solid #666;
+  height: 8px;
+  position: relative;
+  width: auto;
+}
+body .container .player .progress-box .progress-cell .progress .progress-buffer {
+  background: #bf4e4e;
+  height: 100%;
+  width: 0;
+}
+body .container .player .progress-box .progress-cell .progress .progress-indicator {
+  background: darkred;
+  cursor: pointer;
+  height: 10px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: -2px;
+  width: 22px;
+}
+body .container .player .controls-box {
+  bottom: 10px;
+  left: 350px;
+  position: absolute;
+}
+body .container .player .controls-box .previous-track-btn {
+  cursor: pointer;
+  display: inline-block;
+}
+body .container .player .controls-box .previous-track-btn:before {
+  content: "";
+  font: 1em "FontAwesome";
+}
+body .container .player .controls-box .next-track-btn {
+  cursor: pointer;
+  display: inline-block;
+}
+body .container .player .controls-box .next-track-btn:before {
+  content: "";
+  font: 1em "FontAwesome";
+}
+body .container .player:before, body .container .player:after {
+  content: " ";
+  display: table;
+}
+body .container .player:after {
+  clear: both;
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+}
+body .container .play-list {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 100%;
+}
+body .container .play-list .play-list-row {
+  display: block;
+  margin: 20px 0;
+  width: 100%;
+  *zoom: 1;
+}
+body .container .play-list .play-list-row .track-title .playlist-track {
+  color: darkred;
+  text-decoration: none;
+  font-style: italic;
+  letter-spacing: 2px;
+}
+body .container .play-list .play-list-row .track-title .playlist-track:hover {
+  text-decoration: underline;
+}
+body .container .play-list .play-list-row .small-toggle-btn {
+
+  cursor: pointer;
+  display: inline-block;
+  height: 20px;
+  margin: 1em auto;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 20px;
+  top: -2px;
+}
+body .container .play-list .play-list-row .small-toggle-btn .small-play-btn {
+  display: inline-block;
+}
+body .container .play-list .play-list-row .small-toggle-btn .small-play-btn:before {
+  content: "";
+  font: 0.85em "FontAwesome";
+}
+body .container .play-list .play-list-row .small-toggle-btn .small-pause-btn {
+  display: inline-block;
+}
+body .container .play-list .play-list-row .small-toggle-btn .small-pause-btn:before {
+  content: "";
+  font: 0.85em "FontAwesome";
+}
+body .container .play-list .play-list-row .track-number {
+  display: inline-block;
+}
+body .container .play-list .play-list-row .track-title {
+  display: inline-block;
+}
+body .container .play-list .play-list-row .track-title .playlist-track {
+  text-decoration: none;
+}
+body .container .play-list .play-list-row .track-title .playlist-track:hover {
+  text-decoration: underline;
+}
+body .container .play-list .play-list-row .track-title.active-track {
+  font-weight: bold;
+}
+body .container .play-list .play-list-row:before, body .container .play-list .play-list-row:after {
+  content: " ";
+  display: table;
+}
+body .container .play-list .play-list-row:after {
+  clear: both;
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.screen-reader-text {
+  /* Reusable, toolbox kind of class */
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.disabled {
+  color: #666;
+  cursor: default;
+}
+
+.show {
+  display: inline-block !important;
+}
+
+body {
+  margin: 100px 0 0 0;
+  background-color: #000;
+}
+body .container {
+  font-family: arial, helvetica, sans-serif;
+  font-size: 1em;
+  color:darkred;
+  margin: 100px auto;
+  width: 500px;
+  position: relative;
+}
+
+img {
+  position: absolute;
+  z-index: -1;
+  left: -50%;
+  top: -20%;
+  height: auto;
+  width: auto;
+}
+
+h1{
+  font-size: 2rem;
+  color:darkred;
+  font-style: italic;
+  letter-spacing: 4px;
+  padding: 10%;
+}
+
+.text{
+  font-style: italic;
+  text-align: right;
+  opacity: 0.8;
+  position: relative;
+  top: -20px;
+  right: 100px;
+}
+
+body .container .player {
+  height: 60px;
+  margin: 0;
+  position: relative;
+  width: 400px;
+  /* Small devices (tablets, 768px and up) */
+  /* Medium devices (desktops, 992px and up) */
+  /* Large devices (large desktops, 1200px and up) */
+  *zoom: 1;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  body .container .player {
+    width: 470px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1100px) {
+  body .container .player {
+    width: 470px;
+  }
+}
+@media (min-width: 1200px) {
+  body .container .player {
+    width: 470px;
+  }
+}
+body .container .player .large-toggle-btn {
+  
+  float: left;
+  font-size: 1.5em;
+  height: 50px;
+  margin: 0 10px 0 0;
+  overflow: hidden;
+  padding: 5px 0 0 0;
+  position: relative;
+  text-align: center;
+  vertical-align: bottom;
+  width: 54px;
+  color:darkred;
+}
+body .container .player .large-toggle-btn .large-play-btn {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  top: -14%;
+}
+body .container .player .large-toggle-btn .large-play-btn:before {
+  content: "";
+  font: 1.5em/1.75 "FontAwesome";
+}
+body .container .player .large-toggle-btn .large-pause-btn {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  top: -13%;
+}
+body .container .player .large-toggle-btn .large-pause-btn:before {
+  content: "";
+  font: 1.5em/1.75 "FontAwesome";
+}
+body .container .player .info-box {
+  bottom: 10px;
+  left: 65px;
+  position: absolute;
+  top: -1px;
+}
+body .container .player .info-box .track-info-box {
+  float: left;
+  font-size: 12px;
+  margin: 0 0 6px 0;
+  visibility: hidden;
+  width: 400px;
+  *zoom: 1;
+  color:darkred;
+}
+body .container .player .info-box .track-info-box .track-title-text {
+  display: inline-block;
+}
+body .container .player .info-box .track-info-box .audio-time {
+  display: inline-block;
+  padding: 0 0 0 5px;
+  width: 80px;
+}
+body .container .player .info-box .track-info-box:before, body .container .player .info-box .track-info-box:after {
+  content: " ";
+  display: table;
+}
+body .container .player .info-box .track-info-box:after {
+  clear: both;
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+  color:darkred;
+}
+body .container .player .progress-box {
+  float: left;
+  min-width: 270px;
+  position: relative;
+}
+body .container .player .progress-box .progress-cell {
+  height: 12px;
+  position: relative;
+}
+body .container .player .progress-box .progress-cell .progress {
+  background:darkred;
+  border: 1px solid #666;
+  height: 8px;
+  position: relative;
+  width: auto;
+}
+body .container .player .progress-box .progress-cell .progress .progress-buffer {
+  background: #bf4e4e;
+  height: 100%;
+  width: 0;
+}
+body .container .player .progress-box .progress-cell .progress .progress-indicator {
+  background: darkred;
+  cursor: pointer;
+  height: 10px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: -2px;
+  width: 22px;
+}
+body .container .player .controls-box {
+  bottom: 25px;
+  left: 350px;
+  position: absolute;
+}
+body .container .player .controls-box .previous-track-btn {
+  cursor: pointer;
+  display: inline-block;
+}
+body .container .player .controls-box .previous-track-btn:before {
+  content: "";
+  font: 1em "FontAwesome";
+}
+body .container .player .controls-box .next-track-btn {
+  cursor: pointer;
+  display: inline-block;
+}
+body .container .player .controls-box .next-track-btn:before {
+  content: "";
+  font: 1em "FontAwesome";
+}
+body .container .player:before, body .container .player:after {
+  content: " ";
+  display: table;
+}
+body .container .player:after {
+  clear: both;
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+}
+body .container .play-list {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 100%;
+}
+body .container .play-list .play-list-row {
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+}
+body .container .play-list .play-list-row .track-title .playlist-track {
+  color: darkred;
+  text-decoration: none;
+  font-style: italic;
+  letter-spacing: 2px;
+}
+body .container .play-list .play-list-row .track-title .playlist-track:hover {
+  text-decoration: underline;
+}
+body .container .play-list .play-list-row .small-toggle-btn {
+
+  cursor: pointer;
+  display: inline-block;
+  height: 20px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 20px;
+}
+body .container .play-list .play-list-row .small-toggle-btn .small-play-btn {
+  display: inline-block;
+}
+body .container .play-list .play-list-row .small-toggle-btn .small-play-btn:before {
+  content: "";
+  font: 0.85em "FontAwesome";
+}
+body .container .play-list .play-list-row .small-toggle-btn .small-pause-btn {
+  display: inline-block;
+}
+body .container .play-list .play-list-row .small-toggle-btn .small-pause-btn:before {
+  content: "";
+  font: 0.85em "FontAwesome";
+}
+body .container .play-list .play-list-row .track-number {
+  display: inline-block;
+}
+body .container .play-list .play-list-row .track-title {
+  display: inline-block;
+}
+body .container .play-list .play-list-row .track-title .playlist-track {
+  text-decoration: none;
+}
+body .container .play-list .play-list-row .track-title .playlist-track:hover {
+  text-decoration: underline;
+}
+body .container .play-list .play-list-row .track-title.active-track {
+  font-weight: bold;
+}
+body .container .play-list .play-list-row:before, body .container .play-list .play-list-row:after {
+  content: " ";
+  display: table;
+}
+body .container .play-list .play-list-row:after {
+  clear: both;
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+body .eye {
+  top: 110px;
+position: relative;
+left: 200px;
+width: 100px;
+opacity: 0;
+height: 20px;
+}
